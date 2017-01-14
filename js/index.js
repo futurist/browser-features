@@ -891,4 +891,8 @@ function showdesc(el) {
     el.className=''
   })
   el.nextSibling.className = 'show'
+  // if it's phantom, callBack
+  if (typeof window.callPhantom === 'function') {
+    callPhantom('feature-complete')
+  }
 }
