@@ -33,13 +33,21 @@
     </style>
 
     <script type="text/javascript">
-      function showdesc(el) {
-      el = el.parentNode
-      document.querySelectorAll('dd').forEach(function(v) {
-      v.className = ''
-      })
-      el.nextElementSibling.className = 'show'
-      }
+function bindEvents() {
+  document.querySelectorAll('dt>span.item').forEach(function(v) {
+    v.onclick = v.onmouseover = showdesc
+  })
+}
+
+function showdesc(e) {
+  var el = e.target
+  el = el.parentNode
+  document.querySelectorAll('dd').forEach(function(el) {
+    el.className=''
+  })
+  el.nextElementSibling.className = 'show'
+}
+window.onload = bindEvents
     </script>
 
   </head>
@@ -47,226 +55,226 @@
   <body>
     <h2>Phantom 1.9.8</h2>
     <ul id="features">
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[unicode]</span> Unicode characters</dt>
+      <dl class="has"><dt><span class=item>[unicode]</span> Unicode characters</dt>
         <dd>
           <p>Detects if unicode characters are supported in the current document.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[userdata]</span> IE User Data API</dt>
+      <dl class="no-has"><dt><span class=item>[userdata]</span> IE User Data API</dt>
         <dd>
           <p>Detects support for IE userData for persisting data, an API similar to localStorage but supported since IE5.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[vibrate]</span> Vibration API</dt>
+      <dl class="no-has"><dt><span class=item>[vibrate]</span> Vibration API</dt>
         <dd>
           <p>Detects support for the API that provides access to the vibration mechanism of the hosting device, to provide tactile feedback.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[video]</span> HTML5 Video</dt>
+      <dl class="no-has"><dt><span class=item>[video]</span> HTML5 Video</dt>
         <dd>
           <p>Detects support for the video element, as well as testing what types of content it supports.</p>
           <p>Subproperties are provided to describe support for <code>ogg</code>, <code>h264</code> and <code>webm</code> formats, e.g.:</p><pre><code class="lang-javascript">Modernizr.video         // true
               Modernizr.video.ogg     // 'probably'
         </code></pre></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[vml]</span> VML</dt>
+      <dl class="no-has"><dt><span class=item>[vml]</span> VML</dt>
         <dd>
           <p>Detects support for VML.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webintents]</span> Web Intents</dt>
+      <dl class="no-has"><dt><span class=item>[webintents]</span> Web Intents</dt>
         <dd>
           <p>Detects native support for the Web Intents APIs for service discovery and inter-application communication.</p>
           <p>Chrome added support for this in v19, but <a href="https://lists.w3.org/Archives/Public/public-web-intents/2012Nov/0000.html">removed it again in v24</a> because of "a number of areas for development in both the API and specific user experience in Chrome". No other browsers currently support it, however a <a href="http://webintents.org/#javascriptshim">JavaScript shim</a> is available.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[animation]</span> Web Animation API</dt>
+      <dl class="no-has"><dt><span class=item>[animation]</span> Web Animation API</dt>
         <dd>
           <p>Detects support for the Web Animation API, a way to create css animations in js</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webgl]</span> WebGL</dt>
+      <dl class="no-has"><dt><span class=item>[webgl]</span> WebGL</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[websockets]</span> WebSockets Support</dt>
+      <dl class="no-has"><dt><span class=item>[websockets]</span> WebSockets Support</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xdomainrequest]</span> XDomainRequest</dt>
+      <dl class="no-has"><dt><span class=item>[xdomainrequest]</span> XDomainRequest</dt>
         <dd>
           <p>Detects support for XDomainRequest in IE9 &amp; IE8</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[adownload]</span> a[download] Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[adownload]</span> a[download] Attribute</dt>
         <dd>
           <p>When used on an <code>&lt;a&gt;</code>, this attribute signifies that the resource it points to should be downloaded by the browser rather than navigating to it.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[audioloop]</span> Audio Loop Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[audioloop]</span> Audio Loop Attribute</dt>
         <dd>
           <p>Detects if an audio element can automatically restart, once it has finished</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[audiopreload]</span> Audio Preload</dt>
+      <dl class="no-has"><dt><span class=item>[audiopreload]</span> Audio Preload</dt>
         <dd>
           <p>Detects if audio can be downloaded in the background before it starts playing in the <code>&lt;audio&gt;</code> element</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webaudio]</span> Web Audio API</dt>
+      <dl class="no-has"><dt><span class=item>[webaudio]</span> Web Audio API</dt>
         <dd>
           <p>Detects the older non standard webaudio API, (as opposed to the standards based AudioContext API)</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[lowbattery]</span> Low Battery Level</dt>
+      <dl class="no-has"><dt><span class=item>[lowbattery]</span> Low Battery Level</dt>
         <dd>
           <p>Enable a developer to remove CPU intensive CSS/JS when battery is low</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[canvasblending]</span> canvas blending support</dt>
+      <dl class="no-has"><dt><span class=item>[canvasblending]</span> canvas blending support</dt>
         <dd>
           <p>Detects if Photoshop style blending modes are available in canvas.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[todataurljpeg]</span> canvas.toDataURL type support</dt>
+      <dl class="has"><dt><span class=item>[todataurljpeg]</span> canvas.toDataURL type support</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[todataurlpng]</span> canvas.toDataURL type support</dt>
+      <dl class="has"><dt><span class=item>[todataurlpng]</span> canvas.toDataURL type support</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[todataurlwebp]</span> canvas.toDataURL type support</dt>
+      <dl class="no-has"><dt><span class=item>[todataurlwebp]</span> canvas.toDataURL type support</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[canvaswinding]</span> canvas winding support</dt>
+      <dl class="no-has"><dt><span class=item>[canvaswinding]</span> canvas winding support</dt>
         <dd>
           <p>Determines if winding rules, which controls if a path can go clockwise or counterclockwise</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[getrandomvalues]</span> getRandomValues</dt>
+      <dl class="no-has"><dt><span class=item>[getrandomvalues]</span> getRandomValues</dt>
         <dd>
           <p>Detects support for the window.crypto.getRandomValues for generate cryptographically secure random numbers</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssall]</span> cssall</dt>
+      <dl class="no-has"><dt><span class=item>[cssall]</span> cssall</dt>
         <dd>
           <p>Detects support for the <code>all</code> css property, which is a shorthand to reset all css properties (except direction and unicode-bidi) to their original value</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssanimations]</span> CSS Animations</dt>
+      <dl class="has"><dt><span class=item>[cssanimations]</span> CSS Animations</dt>
         <dd>
           <p>Detects whether or not elements can be animated using CSS</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[appearance]</span> Appearance</dt>
+      <dl class="has"><dt><span class=item>[appearance]</span> Appearance</dt>
         <dd>
           <p>Detects support for the <code>appearance</code> css property, which is used to make an element inherit the style of a standard user interface element. It can also be used to remove the default styles of an element, such as input and buttons.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[backdropfilter]</span> Backdrop Filter</dt>
+      <dl class="no-has"><dt><span class=item>[backdropfilter]</span> Backdrop Filter</dt>
         <dd>
           <p>Detects support for CSS Backdrop Filters, allowing for background blur effects like those introduced in iOS 7. Support for this was added to iOS Safari/WebKit in iOS 9.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[backgroundblendmode]</span> CSS Background Blend Mode</dt>
+      <dl class="no-has"><dt><span class=item>[backgroundblendmode]</span> CSS Background Blend Mode</dt>
         <dd>
           <p>Detects the ability for the browser to composite backgrounds using blending modes similar to ones found in Photoshop or Illustrator.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[backgroundcliptext]</span> CSS Background Clip Text</dt>
+      <dl class="has"><dt><span class=item>[backgroundcliptext]</span> CSS Background Clip Text</dt>
         <dd>
           <p>Detects the ability to control specifies whether or not an element's background extends beyond its border in CSS</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bgpositionshorthand]</span> Background Position Shorthand</dt>
+      <dl class="no-has"><dt><span class=item>[bgpositionshorthand]</span> Background Position Shorthand</dt>
         <dd>
           <p>Detects if you can use the shorthand method to define multiple parts of an element's background-position simultaniously.</p>
           <p>eg <code>background-position: right 10px bottom 10px</code></p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bgpositionxy]</span> Background Position XY</dt>
+      <dl class="has"><dt><span class=item>[bgpositionxy]</span> Background Position XY</dt>
         <dd>
           <p>Detects the ability to control an element's background position using css</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bgrepeatspace]</span> Background Repeat</dt>
+      <dl class="has"><dt><span class=item>[bgrepeatspace]</span> Background Repeat</dt>
         <dd>
           <p>Detects the ability to use round and space as properties for background-repeat</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bgrepeatround]</span> Background Repeat</dt>
+      <dl class="has"><dt><span class=item>[bgrepeatround]</span> Background Repeat</dt>
         <dd>
           <p>Detects the ability to use round and space as properties for background-repeat</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[backgroundsize]</span> Background Size</dt>
+      <dl class="has"><dt><span class=item>[backgroundsize]</span> Background Size</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bgsizecover]</span> Background Size Cover</dt>
+      <dl class="has"><dt><span class=item>[bgsizecover]</span> Background Size Cover</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[borderimage]</span> Border Image</dt>
+      <dl class="has"><dt><span class=item>[borderimage]</span> Border Image</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[borderradius]</span> Border Radius</dt>
+      <dl class="has"><dt><span class=item>[borderradius]</span> Border Radius</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[boxshadow]</span> Box Shadow</dt>
+      <dl class="has"><dt><span class=item>[boxshadow]</span> Box Shadow</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[boxsizing]</span> Box Sizing</dt>
+      <dl class="has"><dt><span class=item>[boxsizing]</span> Box Sizing</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csscalc]</span> CSS Calc</dt>
+      <dl class="no-has"><dt><span class=item>[csscalc]</span> CSS Calc</dt>
         <dd>
           <p>Method of allowing calculated values for length units. For example:</p><pre><code class="lang-css">//lem {
               width: calc(100% - 3em);
               }
         </code></pre></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[checked]</span> CSS :checked pseudo-selector</dt>
+      <dl class="has"><dt><span class=item>[checked]</span> CSS :checked pseudo-selector</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csschunit]</span> CSS Font ch Units</dt>
+      <dl class="no-has"><dt><span class=item>[csschunit]</span> CSS Font ch Units</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csscolumns]</span> CSS Columns</dt>
+      <dl class="has"><dt><span class=item>[csscolumns]</span> CSS Columns</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cubicbezierrange]</span> CSS Cubic Bezier Range</dt>
+      <dl class="no-has"><dt><span class=item>[cubicbezierrange]</span> CSS Cubic Bezier Range</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[display-runin]</span> CSS Display run-in</dt>
+      <dl class="has"><dt><span class=item>[display-runin]</span> CSS Display run-in</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[displaytable]</span> CSS Display table</dt>
+      <dl class="has"><dt><span class=item>[displaytable]</span> CSS Display table</dt>
         <dd>
           <p><code>display: table</code> and <code>table-cell</code> test. (both are tested under one name <code>table-cell</code> )</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[ellipsis]</span> CSS text-overflow ellipsis</dt>
+      <dl class="has"><dt><span class=item>[ellipsis]</span> CSS text-overflow ellipsis</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssescape]</span> CSS.escape()</dt>
+      <dl class="no-has"><dt><span class=item>[cssescape]</span> CSS.escape()</dt>
         <dd>
           <p>Tests for <code>CSS.escape()</code> support.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssexunit]</span> CSS Font ex Units</dt>
+      <dl class="has"><dt><span class=item>[cssexunit]</span> CSS Font ex Units</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssfilters]</span> CSS Filters</dt>
+      <dl class="no-has"><dt><span class=item>[cssfilters]</span> CSS Filters</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[flexbox]</span> Flexbox</dt>
+      <dl class="no-has"><dt><span class=item>[flexbox]</span> Flexbox</dt>
         <dd>
           <p>Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[flexboxlegacy]</span> Flexbox (legacy)</dt>
+      <dl class="has"><dt><span class=item>[flexboxlegacy]</span> Flexbox (legacy)</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[flexboxtweener]</span> Flexbox (tweener)</dt>
+      <dl class="no-has"><dt><span class=item>[flexboxtweener]</span> Flexbox (tweener)</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[flexwrap]</span> Flex Line Wrapping</dt>
+      <dl class="no-has"><dt><span class=item>[flexwrap]</span> Flex Line Wrapping</dt>
         <dd>
           <p>Detects support for the <code>flex-wrap</code> CSS property, part of Flexbox, which isn鈥檛 present in all Flexbox implementations (notably Firefox).</p>
           <p>This featured in both the 'tweener' syntax (implemented by IE10) and the 'modern' syntax (implemented by others). This detect will return <code>true</code> for either of these implementations, as long as the <code>flex-wrap</code> property is supported. So to ensure the modern syntax is supported, use together with <code>Modernizr.flexbox</code>:</p><pre><code class="lang-javascript">if (Modernizr.flexbox &amp;&amp; Modernizr.flexwrap) {
@@ -277,393 +285,393 @@
               }
         </code></pre></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[fontface]</span> @font-face</dt>
+      <dl class="has"><dt><span class=item>[fontface]</span> @font-face</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[generatedcontent]</span> CSS Generated Content</dt>
+      <dl class="has"><dt><span class=item>[generatedcontent]</span> CSS Generated Content</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssgradients]</span> CSS Gradients</dt>
+      <dl class="has"><dt><span class=item>[cssgradients]</span> CSS Gradients</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csshairline]</span> hairline</dt>
+      <dl class="no-has"><dt><span class=item>[csshairline]</span> hairline</dt>
         <dd>
           <p>Detects support for hidpi/retina hairlines, which are CSS borders with less than 1px in width, for being physically 1px on hidpi screens.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[hsla]</span> CSS HSLA Colors</dt>
+      <dl class="has"><dt><span class=item>[hsla]</span> CSS HSLA Colors</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csshyphens]</span> CSS Hyphens</dt>
+      <dl class="no-has"><dt><span class=item>[csshyphens]</span> CSS Hyphens</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[softhyphens]</span> CSS Hyphens</dt>
+      <dl class="no-has"><dt><span class=item>[softhyphens]</span> CSS Hyphens</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[softhyphensfind]</span> CSS Hyphens</dt>
+      <dl class="no-has"><dt><span class=item>[softhyphensfind]</span> CSS Hyphens</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssinvalid]</span> CSS :invalid pseudo-class</dt>
+      <dl class="has"><dt><span class=item>[cssinvalid]</span> CSS :invalid pseudo-class</dt>
         <dd>
           <p>Detects support for the ':invalid' CSS pseudo-class.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[lastchild]</span> CSS :last-child pseudo-selector</dt>
+      <dl class="has"><dt><span class=item>[lastchild]</span> CSS :last-child pseudo-selector</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssmask]</span> CSS Mask</dt>
+      <dl class="has"><dt><span class=item>[cssmask]</span> CSS Mask</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[mediaqueries]</span> CSS Media Queries</dt>
+      <dl class="has"><dt><span class=item>[mediaqueries]</span> CSS Media Queries</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[multiplebgs]</span> CSS Multiple Backgrounds</dt>
+      <dl class="has"><dt><span class=item>[multiplebgs]</span> CSS Multiple Backgrounds</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[nthchild]</span> CSS :nth-child pseudo-selector</dt>
+      <dl class="has"><dt><span class=item>[nthchild]</span> CSS :nth-child pseudo-selector</dt>
         <dd>
           <p>Detects support for the ':nth-child()' CSS pseudo-selector.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[objectfit]</span> CSS Object Fit</dt>
+      <dl class="no-has"><dt><span class=item>[objectfit]</span> CSS Object Fit</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[opacity]</span> CSS Opacity</dt>
+      <dl class="has"><dt><span class=item>[opacity]</span> CSS Opacity</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[overflowscrolling]</span> CSS Overflow Scrolling</dt>
+      <dl class="no-has"><dt><span class=item>[overflowscrolling]</span> CSS Overflow Scrolling</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csspointerevents]</span> CSS Pointer Events</dt>
+      <dl class="has"><dt><span class=item>[csspointerevents]</span> CSS Pointer Events</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csspositionsticky]</span> CSS position: sticky</dt>
+      <dl class="no-has"><dt><span class=item>[csspositionsticky]</span> CSS position: sticky</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csspseudoanimations]</span> CSS Generated Content Animations</dt>
+      <dl class="no-has"><dt><span class=item>[csspseudoanimations]</span> CSS Generated Content Animations</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csspseudotransitions]</span> CSS Generated Content Transitions</dt>
+      <dl class="no-has"><dt><span class=item>[csspseudotransitions]</span> CSS Generated Content Transitions</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssreflections]</span> CSS Reflections</dt>
+      <dl class="has"><dt><span class=item>[cssreflections]</span> CSS Reflections</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[regions]</span> CSS Regions</dt>
+      <dl class="no-has"><dt><span class=item>[regions]</span> CSS Regions</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssremunit]</span> CSS Font rem Units</dt>
+      <dl class="has"><dt><span class=item>[cssremunit]</span> CSS Font rem Units</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssresize]</span> CSS UI Resize</dt>
+      <dl class="has"><dt><span class=item>[cssresize]</span> CSS UI Resize</dt>
         <dd>
           <p>Test for CSS 3 UI "resize" property</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[rgba]</span> CSS rgba</dt>
+      <dl class="has"><dt><span class=item>[rgba]</span> CSS rgba</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssscrollbar]</span> CSS Stylable Scrollbars</dt>
+      <dl class="has"><dt><span class=item>[cssscrollbar]</span> CSS Stylable Scrollbars</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[scrollsnappoints]</span> Scroll Snap Points</dt>
+      <dl class="no-has"><dt><span class=item>[scrollsnappoints]</span> Scroll Snap Points</dt>
         <dd>
           <p>Detects support for CSS Snap Points</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[shapes]</span> CSS Shapes</dt>
+      <dl class="no-has"><dt><span class=item>[shapes]</span> CSS Shapes</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[siblinggeneral]</span> CSS general sibling selector</dt>
+      <dl class="has"><dt><span class=item>[siblinggeneral]</span> CSS general sibling selector</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[subpixelfont]</span> CSS Subpixel Fonts</dt>
+      <dl class="no-has"><dt><span class=item>[subpixelfont]</span> CSS Subpixel Fonts</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[supports]</span> CSS Supports</dt>
+      <dl class="no-has"><dt><span class=item>[supports]</span> CSS Supports</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[target]</span> CSS :target pseudo-class</dt>
+      <dl class="has"><dt><span class=item>[target]</span> CSS :target pseudo-class</dt>
         <dd>
           <p>Detects support for the ':target' CSS pseudo-class.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[textalignlast]</span> CSS text-align-last</dt>
+      <dl class="no-has"><dt><span class=item>[textalignlast]</span> CSS text-align-last</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[textshadow]</span> CSS textshadow</dt>
+      <dl class="has"><dt><span class=item>[textshadow]</span> CSS textshadow</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csstransforms]</span> CSS Transforms</dt>
+      <dl class="has"><dt><span class=item>[csstransforms]</span> CSS Transforms</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csstransforms3d]</span> CSS Transforms 3D</dt>
+      <dl class="no-has"><dt><span class=item>[csstransforms3d]</span> CSS Transforms 3D</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[preserve3d]</span> CSS Transform Style preserve-3d</dt>
+      <dl class="no-has"><dt><span class=item>[preserve3d]</span> CSS Transform Style preserve-3d</dt>
         <dd>
           <p>Detects support for <code>transform-style: preserve-3d</code>, for getting a proper 3D perspective on elements.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[csstransitions]</span> CSS Transitions</dt>
+      <dl class="has"><dt><span class=item>[csstransitions]</span> CSS Transitions</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[userselect]</span> CSS user-select</dt>
+      <dl class="has"><dt><span class=item>[userselect]</span> CSS user-select</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssvalid]</span> CSS :valid pseudo-class</dt>
+      <dl class="has"><dt><span class=item>[cssvalid]</span> CSS :valid pseudo-class</dt>
         <dd>
           <p>Detects support for the ':valid' CSS pseudo-class.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssvhunit]</span> CSS vh unit</dt>
+      <dl class="no-has"><dt><span class=item>[cssvhunit]</span> CSS vh unit</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssvmaxunit]</span> CSS vmax unit</dt>
+      <dl class="no-has"><dt><span class=item>[cssvmaxunit]</span> CSS vmax unit</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssvminunit]</span> CSS vmin unit</dt>
+      <dl class="no-has"><dt><span class=item>[cssvminunit]</span> CSS vmin unit</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[cssvwunit]</span> CSS vw unit</dt>
+      <dl class="no-has"><dt><span class=item>[cssvwunit]</span> CSS vw unit</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[willchange]</span> will-change</dt>
+      <dl class="no-has"><dt><span class=item>[willchange]</span> will-change</dt>
         <dd>
           <p>Detects support for the <code>will-change</code> css property, which formally signals to the browser that an element will be animating.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[wrapflow]</span> CSS wrap-flow</dt>
+      <dl class="no-has"><dt><span class=item>[wrapflow]</span> CSS wrap-flow</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[classlist]</span> classList</dt>
+      <dl class="has"><dt><span class=item>[classlist]</span> classList</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[createelementattrs]</span> createElement with Attributes</dt>
+      <dl class="no-has"><dt><span class=item>[createelementattrs]</span> createElement with Attributes</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[createelement-attrs]</span> createElement with Attributes</dt>
+      <dl class="no-has"><dt><span class=item>[createelement-attrs]</span> createElement with Attributes</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[dataset]</span> dataset API</dt>
+      <dl class="has"><dt><span class=item>[dataset]</span> dataset API</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[documentfragment]</span> Document Fragment</dt>
+      <dl class="has"><dt><span class=item>[documentfragment]</span> Document Fragment</dt>
         <dd>
           <p>Append multiple elements to the DOM within a single insertion.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[hidden]</span> [hidden] Attribute</dt>
+      <dl class="has"><dt><span class=item>[hidden]</span> [hidden] Attribute</dt>
         <dd>
           <p>Does the browser support the HTML5 [hidden] attribute?</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[microdata]</span> microdata</dt>
+      <dl class="no-has"><dt><span class=item>[microdata]</span> microdata</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[mutationobserver]</span> DOM4 MutationObserver</dt>
+      <dl class="no-has"><dt><span class=item>[mutationobserver]</span> DOM4 MutationObserver</dt>
         <dd>
           <p>Determines if DOM4 MutationObserver support is available.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bdi]</span> bdi Element</dt>
+      <dl class="no-has"><dt><span class=item>[bdi]</span> bdi Element</dt>
         <dd>
           <p>Detect support for the bdi element, a way to have text that is isolated from its possibly bidirectional surroundings</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[datalistelem]</span> datalist Element</dt>
+      <dl class="no-has"><dt><span class=item>[datalistelem]</span> datalist Element</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[details]</span> details Element</dt>
+      <dl class="has"><dt><span class=item>[details]</span> details Element</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[outputelem]</span> output Element</dt>
+      <dl class="has"><dt><span class=item>[outputelem]</span> output Element</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[picture]</span> picture Element</dt>
+      <dl class="no-has"><dt><span class=item>[picture]</span> picture Element</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[progressbar]</span> progress Element</dt>
+      <dl class="has"><dt><span class=item>[progressbar]</span> progress Element</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[meter]</span> progress Element</dt>
+      <dl class="has"><dt><span class=item>[meter]</span> progress Element</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[ruby]</span> ruby, rp, rt Elements</dt>
+      <dl class="has"><dt><span class=item>[ruby]</span> ruby, rp, rt Elements</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[template]</span> Template Tag</dt>
+      <dl class="no-has"><dt><span class=item>[template]</span> Template Tag</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[time]</span> time Element</dt>
+      <dl class="no-has"><dt><span class=item>[time]</span> time Element</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[texttrackapi]</span> Track element and Timed Text Track</dt>
+      <dl class="no-has"><dt><span class=item>[texttrackapi]</span> Track element and Timed Text Track</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[track]</span> Track element and Timed Text Track</dt>
+      <dl class="no-has"><dt><span class=item>[track]</span> Track element and Timed Text Track</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[unknownelements]</span> Unknown Elements</dt>
+      <dl class="has"><dt><span class=item>[unknownelements]</span> Unknown Elements</dt>
         <dd>
           <p>Does the browser support HTML with non-standard / new elements?</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5array]</span> ES5 Array</dt>
+      <dl class="has"><dt><span class=item>[es5array]</span> ES5 Array</dt>
         <dd>
           <p>Check if browser implements ECMAScript 5 Array per specification.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5date]</span> ES5 Date</dt>
+      <dl class="has"><dt><span class=item>[es5date]</span> ES5 Date</dt>
         <dd>
           <p>Check if browser implements ECMAScript 5 Date per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5function]</span> ES5 Function</dt>
+      <dl class="no-has"><dt><span class=item>[es5function]</span> ES5 Function</dt>
         <dd>
           <p>Check if browser implements ECMAScript 5 Function per specification.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5object]</span> ES5 Object</dt>
+      <dl class="has"><dt><span class=item>[es5object]</span> ES5 Object</dt>
         <dd>
           <p>Check if browser implements ECMAScript 5 Object per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5]</span> ES5</dt>
+      <dl class="no-has"><dt><span class=item>[es5]</span> ES5</dt>
         <dd>
           <p>Check if browser implements everything as specified in ECMAScript 5.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[strictmode]</span> ES5 Strict Mode</dt>
+      <dl class="has"><dt><span class=item>[strictmode]</span> ES5 Strict Mode</dt>
         <dd>
           <p>Check if browser implements ECMAScript 5 Object strict mode.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5string]</span> ES5 String</dt>
+      <dl class="has"><dt><span class=item>[es5string]</span> ES5 String</dt>
         <dd>
           <p>Check if browser implements ECMAScript 5 String per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5syntax]</span> ES5 Syntax</dt>
+      <dl class="no-has"><dt><span class=item>[es5syntax]</span> ES5 Syntax</dt>
         <dd>
           <p>Check if browser accepts ECMAScript 5 syntax.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es5undefined]</span> ES5 Immutable Undefined</dt>
+      <dl class="has"><dt><span class=item>[es5undefined]</span> ES5 Immutable Undefined</dt>
         <dd>
           <p>Check if browser prevents assignment to global <code>undefined</code> per ECMAScript 5.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es6array]</span> ES6 Array</dt>
+      <dl class="no-has"><dt><span class=item>[es6array]</span> ES6 Array</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Array per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es6collections]</span> ES6 Collections</dt>
+      <dl class="no-has"><dt><span class=item>[es6collections]</span> ES6 Collections</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Map, Set, WeakMap and WeakSet</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[contains]</span> ES5 String.prototype.contains</dt>
+      <dl class="no-has"><dt><span class=item>[contains]</span> ES5 String.prototype.contains</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 <code>String.prototype.contains</code> per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[generators]</span> ES6 Generators</dt>
+      <dl class="no-has"><dt><span class=item>[generators]</span> ES6 Generators</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Generators per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es6math]</span> ES6 Math</dt>
+      <dl class="no-has"><dt><span class=item>[es6math]</span> ES6 Math</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Math per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es6number]</span> ES6 Number</dt>
+      <dl class="no-has"><dt><span class=item>[es6number]</span> ES6 Number</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Number per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es6object]</span> ES6 Object</dt>
+      <dl class="no-has"><dt><span class=item>[es6object]</span> ES6 Object</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Object per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[promises]</span> ES6 Promises</dt>
+      <dl class="no-has"><dt><span class=item>[promises]</span> ES6 Promises</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 Promises per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[es6string]</span> ES6 String</dt>
+      <dl class="no-has"><dt><span class=item>[es6string]</span> ES6 String</dt>
         <dd>
           <p>Check if browser implements ECMAScript 6 String per specification.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[devicemotion]</span> Orientation and Motion Events</dt>
+      <dl class="no-has"><dt><span class=item>[devicemotion]</span> Orientation and Motion Events</dt>
         <dd>
           <p>Part of Device Access aspect of HTML5, same category as geolocation.</p>
           <p><code>devicemotion</code> tests for Device Motion Event support, returns boolean value true/false.</p>
           <p><code>deviceorientation</code> tests for Device Orientation Event support, returns boolean value true/false</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[deviceorientation]</span> Orientation and Motion Events</dt>
+      <dl class="no-has"><dt><span class=item>[deviceorientation]</span> Orientation and Motion Events</dt>
         <dd>
           <p>Part of Device Access aspect of HTML5, same category as geolocation.</p>
           <p><code>devicemotion</code> tests for Device Motion Event support, returns boolean value true/false.</p>
           <p><code>deviceorientation</code> tests for Device Orientation Event support, returns boolean value true/false</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[oninput]</span> onInput Event</dt>
+      <dl class="has"><dt><span class=item>[oninput]</span> onInput Event</dt>
         <dd>
           <p><code>oninput</code> tests if the browser is able to detect the input event</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[filereader]</span> File API</dt>
+      <dl class="has"><dt><span class=item>[filereader]</span> File API</dt>
         <dd>
           <p><code>filereader</code> tests for the File API specification</p>
           <p>Tests for objects specific to the File API W3C specification without being redundant (don't bother testing for Blob since it is assumed to be the File object's prototype.)</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[filesystem]</span> Filesystem API</dt>
+      <dl class="no-has"><dt><span class=item>[filesystem]</span> Filesystem API</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[capture]</span> input[capture] Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[capture]</span> input[capture] Attribute</dt>
         <dd>
           <p>When used on an <code>&lt;input&gt;</code>, this attribute signifies that the resource it takes should be generated via device's camera, camcorder, sound recorder.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[fileinput]</span> input[file] Attribute</dt>
+      <dl class="has"><dt><span class=item>[fileinput]</span> input[file] Attribute</dt>
         <dd>
           <p>Detects whether input type="file" is available on the platform</p>
           <p>E.g. iOS &lt; 6 and some android version don't support this</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[directory]</span> input[directory] Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[directory]</span> input[directory] Attribute</dt>
         <dd>
           <p>When used on an <code>&lt;input type="file"&gt;</code>, the <code>directory</code> attribute instructs the user agent to present a directory selection dialog instead of the usual file selection dialog.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[formattribute]</span> input[form] Attribute</dt>
+      <dl class="has"><dt><span class=item>[formattribute]</span> input[form] Attribute</dt>
         <dd>
           <p>Detects whether input form="form_id" is available on the platform E.g. IE 10 (and below), don't support this</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[localizednumber]</span> input[type="number"] Localization</dt>
+      <dl class="no-has"><dt><span class=item>[localizednumber]</span> input[type="number"] Localization</dt>
         <dd>
           <p>Detects whether input type="number" is capable of receiving and displaying localized numbers, e.g. with comma separator.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[placeholder]</span> placeholder attribute</dt>
+      <dl class="has"><dt><span class=item>[placeholder]</span> placeholder attribute</dt>
         <dd>
           <p>Tests for placeholder attribute in inputs and textareas</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[requestautocomplete]</span> form#requestAutocomplete()</dt>
+      <dl class="no-has"><dt><span class=item>[requestautocomplete]</span> form#requestAutocomplete()</dt>
         <dd>
           <p>When used with input[autocomplete] to annotate a form, form.requestAutocomplete() shows a dialog in Chrome that speeds up checkout flows (payments specific for now).</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[formvalidation]</span> Form Validation</dt>
+      <dl class="no-has"><dt><span class=item>[formvalidation]</span> Form Validation</dt>
         <dd>
           <p>This implementation only tests support for interactive form validation. To check validation for a specific type or a specific other constraint, the test can be combined:</p>
           <ul>
@@ -672,104 +680,104 @@
           </ul>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[sandbox]</span> iframe[sandbox] Attribute</dt>
+      <dl class="has"><dt><span class=item>[sandbox]</span> iframe[sandbox] Attribute</dt>
         <dd>
           <p>Test for <code>sandbox</code> attribute in iframes.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[seamless]</span> iframe[seamless] Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[seamless]</span> iframe[seamless] Attribute</dt>
         <dd>
           <p>Test for <code>seamless</code> attribute in iframes.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[srcdoc]</span> iframe[srcdoc] Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[srcdoc]</span> iframe[srcdoc] Attribute</dt>
         <dd>
           <p>Test for <code>srcdoc</code> attribute in iframes.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[apng]</span> Animated PNG</dt>
+      <dl class="no-has"><dt><span class=item>[apng]</span> Animated PNG</dt>
         <dd>
           <p>Test for animated png support.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[imgcrossorigin]</span> Image crossOrigin</dt>
+      <dl class="no-has"><dt><span class=item>[imgcrossorigin]</span> Image crossOrigin</dt>
         <dd>
           <p>Detects support for the crossOrigin attribute on images, which allow for cross domain images inside of a canvas without tainting it</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[jpeg2000]</span> JPEG 2000</dt>
+      <dl class="no-has"><dt><span class=item>[jpeg2000]</span> JPEG 2000</dt>
         <dd>
           <p>Test for JPEG 2000 support</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[jpegxr]</span> JPEG XR (extended range)</dt>
+      <dl class="no-has"><dt><span class=item>[jpegxr]</span> JPEG XR (extended range)</dt>
         <dd>
           <p>Test for JPEG XR support</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[sizes]</span> sizes attribute</dt>
+      <dl class="no-has"><dt><span class=item>[sizes]</span> sizes attribute</dt>
         <dd>
           <p>Test for the <code>sizes</code> attribute on images</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[srcset]</span> srcset attribute</dt>
+      <dl class="no-has"><dt><span class=item>[srcset]</span> srcset attribute</dt>
         <dd>
           <p>Test for the srcset attribute of images</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webpalpha]</span> Webp Alpha</dt>
+      <dl class="no-has"><dt><span class=item>[webpalpha]</span> Webp Alpha</dt>
         <dd>
           <p>Tests for transparent webp support.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webpanimation]</span> Webp Animation</dt>
+      <dl class="no-has"><dt><span class=item>[webpanimation]</span> Webp Animation</dt>
         <dd>
           <p>Tests for animated webp support.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webplossless]</span> Webp Lossless</dt>
+      <dl class="no-has"><dt><span class=item>[webplossless]</span> Webp Lossless</dt>
         <dd>
           <p>Tests for non-alpha lossless webp support.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webp-lossless]</span> Webp Lossless</dt>
+      <dl class="no-has"><dt><span class=item>[webp-lossless]</span> Webp Lossless</dt>
         <dd>
           <p>Tests for non-alpha lossless webp support.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webp]</span> Webp</dt>
+      <dl class="no-has"><dt><span class=item>[webp]</span> Webp</dt>
         <dd>
           <p>Tests for lossy, non-alpha webp support.</p>
           <p>Tests for all forms of webp support (lossless, lossy, alpha, and animated)..</p>
           <p>Modernizr.webp // Basic support (lossy) Modernizr.webp.lossless // Lossless Modernizr.webp.alpha // Alpha (both lossy and lossless) Modernizr.webp.animation // Animated WebP</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[inputformaction]</span> input formaction</dt>
+      <dl class="has"><dt><span class=item>[inputformaction]</span> input formaction</dt>
         <dd>
           <p>Detect support for the formaction attribute on form inputs</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[inputformenctype]</span> input formenctype</dt>
+      <dl class="has"><dt><span class=item>[inputformenctype]</span> input formenctype</dt>
         <dd>
           <p>Detect support for the formenctype attribute on form inputs, which overrides the form enctype attribute</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[inputformmethod]</span> input formmethod</dt>
+      <dl class="has"><dt><span class=item>[inputformmethod]</span> input formmethod</dt>
         <dd>
           <p>Detect support for the formmethod attribute on form inputs</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[inputformtarget]</span> input formtarget</dt>
+      <dl class="no-has"><dt><span class=item>[inputformtarget]</span> input formtarget</dt>
         <dd>
           <p>Detect support for the formtarget attribute on form inputs, which overrides the form target attribute</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[beacon]</span> Beacon API</dt>
+      <dl class="no-has"><dt><span class=item>[beacon]</span> Beacon API</dt>
         <dd>
           <p>Detects support for an API that allows for asynchronous transfer of small HTTP data from the client to a server.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[lowbandwidth]</span> Low Bandwidth Connection</dt>
+      <dl class="no-has"><dt><span class=item>[lowbandwidth]</span> Low Bandwidth Connection</dt>
         <dd>
           <p>Tests for determining low-bandwidth via <code>navigator.connection</code></p>
           <p>There are two iterations of the <code>navigator.connection</code> interface.</p>
@@ -786,139 +794,139 @@
           <p>For more rigorous network testing, consider boomerang.js: <a href="https://github.com/bluesmoon/boomerang/">https://github.com/bluesmoon/boomerang/</a></p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[eventsource]</span> Server Sent Events</dt>
+      <dl class="has"><dt><span class=item>[eventsource]</span> Server Sent Events</dt>
         <dd>
           <p>Tests for server sent events aka eventsource.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[fetch]</span> Fetch API</dt>
+      <dl class="no-has"><dt><span class=item>[fetch]</span> Fetch API</dt>
         <dd>
           <p>Detects support for the fetch API, a modern replacement for XMLHttpRequest.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhrresponsetypearraybuffer]</span> XHR responseType='arraybuffer'</dt>
+      <dl class="has"><dt><span class=item>[xhrresponsetypearraybuffer]</span> XHR responseType='arraybuffer'</dt>
         <dd>
           <p>Tests for XMLHttpRequest xhr.responseType='arraybuffer'.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhrresponsetypeblob]</span> XHR responseType='blob'</dt>
+      <dl class="no-has"><dt><span class=item>[xhrresponsetypeblob]</span> XHR responseType='blob'</dt>
         <dd>
           <p>Tests for XMLHttpRequest xhr.responseType='blob'.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhrresponsetypedocument]</span> XHR responseType='document'</dt>
+      <dl class="has"><dt><span class=item>[xhrresponsetypedocument]</span> XHR responseType='document'</dt>
         <dd>
           <p>Tests for XMLHttpRequest xhr.responseType='document'.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhrresponsetypejson]</span> XHR responseType='json'</dt>
+      <dl class="no-has"><dt><span class=item>[xhrresponsetypejson]</span> XHR responseType='json'</dt>
         <dd>
           <p>Tests for XMLHttpRequest xhr.responseType='json'.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhrresponsetypetext]</span> XHR responseType='text'</dt>
+      <dl class="has"><dt><span class=item>[xhrresponsetypetext]</span> XHR responseType='text'</dt>
         <dd>
           <p>Tests for XMLHttpRequest xhr.responseType='text'.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhrresponsetype]</span> XHR responseType</dt>
+      <dl class="has"><dt><span class=item>[xhrresponsetype]</span> XHR responseType</dt>
         <dd>
           <p>Tests for XMLHttpRequest xhr.responseType.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[xhr2]</span> XML HTTP Request Level 2 XHR2</dt>
+      <dl class="has"><dt><span class=item>[xhr2]</span> XML HTTP Request Level 2 XHR2</dt>
         <dd>
           <p>Tests for XHR2.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[scriptasync]</span> script[async]</dt>
+      <dl class="has"><dt><span class=item>[scriptasync]</span> script[async]</dt>
         <dd>
           <p>Detects support for the <code>async</code> attribute on the <code>&lt;script&gt;</code> element.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[scriptdefer]</span> script[defer]</dt>
+      <dl class="has"><dt><span class=item>[scriptdefer]</span> script[defer]</dt>
         <dd>
           <p>Detects support for the <code>defer</code> attribute on the <code>&lt;script&gt;</code> element.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[speechrecognition]</span> Speech Recognition API</dt>
+      <dl class="no-has"><dt><span class=item>[speechrecognition]</span> Speech Recognition API</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[speechsynthesis]</span> Speech Synthesis API</dt>
+      <dl class="no-has"><dt><span class=item>[speechsynthesis]</span> Speech Synthesis API</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[localstorage]</span> Local Storage</dt>
+      <dl class="has"><dt><span class=item>[localstorage]</span> Local Storage</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[sessionstorage]</span> Session Storage</dt>
+      <dl class="has"><dt><span class=item>[sessionstorage]</span> Session Storage</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[websqldatabase]</span> Web SQL Database</dt>
+      <dl class="has"><dt><span class=item>[websqldatabase]</span> Web SQL Database</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[stylescoped]</span> style[scoped]</dt>
+      <dl class="no-has"><dt><span class=item>[stylescoped]</span> style[scoped]</dt>
         <dd>
           <p>Support for the <code>scoped</code> attribute of the <code>&lt;style&gt;</code> element.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[svgasimg]</span> SVG as an <img> tag source</dt>
+      <dl class="has"><dt><span class=item>[svgasimg]</span> SVG as an <img> tag source</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[svgclippaths]</span> SVG clip paths</dt>
+      <dl class="has"><dt><span class=item>[svgclippaths]</span> SVG clip paths</dt>
         <dd>
           <p>Detects support for clip paths in SVG (only, not on HTML content).</p>
           <p>See <a href="https://github.com/Modernizr/Modernizr/issues/213">this discussion</a> regarding applying SVG clip paths to HTML content.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[svgfilters]</span> SVG filters</dt>
+      <dl class="has"><dt><span class=item>[svgfilters]</span> SVG filters</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[svgforeignobject]</span> SVG foreignObject</dt>
+      <dl class="has"><dt><span class=item>[svgforeignobject]</span> SVG foreignObject</dt>
         <dd>
           <p>Detects support for foreignObject tag in SVG.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[inlinesvg]</span> Inline SVG</dt>
+      <dl class="has"><dt><span class=item>[inlinesvg]</span> Inline SVG</dt>
         <dd>
           <p>Detects support for inline SVG in HTML (not within XHTML).</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[smil]</span> SVG SMIL animation</dt>
+      <dl class="has"><dt><span class=item>[smil]</span> SVG SMIL animation</dt>
         <dd></dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[textareamaxlength]</span> textarea maxlength</dt>
+      <dl class="has"><dt><span class=item>[textareamaxlength]</span> textarea maxlength</dt>
         <dd>
           <p>Detect support for the maxlength attribute of a textarea element</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[bloburls]</span> Blob URLs</dt>
+      <dl class="has"><dt><span class=item>[bloburls]</span> Blob URLs</dt>
         <dd>
           <p>Detects support for creating Blob URLs</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[datauri]</span> Data URI</dt>
+      <dl class="has"><dt><span class=item>[datauri]</span> Data URI</dt>
         <dd>
           <p>Detects support for data URIs. Provides a subproperty to report support for data URIs over 32kb in size:</p><pre><code class="lang-javascript">Modernizr.datauri           // true
               Modernizr.datauri.over32kb  // false in IE8
         </code></pre></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[urlparser]</span> URL parser</dt>
+      <dl class="no-has"><dt><span class=item>[urlparser]</span> URL parser</dt>
         <dd>
           <p>Check if browser implements the URL constructor for parsing URLs.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[videoautoplay]</span> Video Autoplay</dt>
+      <dl class="no-has"><dt><span class=item>[videoautoplay]</span> Video Autoplay</dt>
         <dd>
           <p>Checks for support of the autoplay attribute of the video element.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[videoloop]</span> Video Loop Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[videoloop]</span> Video Loop Attribute</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[videopreload]</span> Video Preload Attribute</dt>
+      <dl class="no-has"><dt><span class=item>[videopreload]</span> Video Preload Attribute</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webglextensions]</span> WebGL Extensions</dt>
+      <dl class="no-has"><dt><span class=item>[webglextensions]</span> WebGL Extensions</dt>
         <dd>
           <p>Detects support for OpenGL extensions in WebGL. It's <code>true</code> if the <a href="https://developer.mozilla.org/en-US/docs/Web/WebGL/Using_Extensions">WebGL extensions API</a> is supported, then exposes the supported extensions as subproperties, e.g.:</p><pre><code class="lang-javascript">if (Modernizr.webglextensions) {
               // WebGL extensions API supported
@@ -928,56 +936,56 @@
               }
         </code></pre></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[datachannel]</span> RTC Data Channel</dt>
+      <dl class="no-has"><dt><span class=item>[datachannel]</span> RTC Data Channel</dt>
         <dd>
           <p>Detect for the RTCDataChannel API that allows for transfer data directly from one peer to another</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[getusermedia]</span> getUserMedia</dt>
+      <dl class="no-has"><dt><span class=item>[getusermedia]</span> getUserMedia</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[peerconnection]</span> RTC Peer Connection</dt>
+      <dl class="no-has"><dt><span class=item>[peerconnection]</span> RTC Peer Connection</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[websocketsbinary]</span> Binary WebSockets</dt>
+      <dl class="no-has"><dt><span class=item>[websocketsbinary]</span> Binary WebSockets</dt>
         <dd></dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[atobbtoa]</span> Base 64 encoding/decoding</dt>
+      <dl class="no-has"><dt><span class=item>[atobbtoa]</span> Base 64 encoding/decoding</dt>
         <dd>
           <p>Detects support for WindowBase64 API (window.atob &amp;&amp; window.btoa).</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[framed]</span> Framed window</dt>
+      <dl class="no-has"><dt><span class=item>[framed]</span> Framed window</dt>
         <dd>
           <p>Tests if page is iframed.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[matchmedia]</span> matchMedia</dt>
+      <dl class="no-has"><dt><span class=item>[matchmedia]</span> matchMedia</dt>
         <dd>
           <p>Detects support for matchMedia.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[blobworkers]</span> Workers from Blob URIs</dt>
+      <dl class="no-has"><dt><span class=item>[blobworkers]</span> Workers from Blob URIs</dt>
         <dd>
           <p>Detects support for creating Web Workers from Blob URIs.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[dataworkers]</span> Workers from Data URIs</dt>
+      <dl class="no-has"><dt><span class=item>[dataworkers]</span> Workers from Data URIs</dt>
         <dd>
           <p>Detects support for creating Web Workers from Data URIs.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[sharedworkers]</span> Shared Workers</dt>
+      <dl class="has"><dt><span class=item>[sharedworkers]</span> Shared Workers</dt>
         <dd>
           <p>Detects support for the <code>SharedWorker</code> API from the Web Workers spec.</p>
         </dd>
       </dl>
-      <dl class="no-has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[transferables]</span> Transferables Objects</dt>
+      <dl class="no-has"><dt><span class=item>[transferables]</span> Transferables Objects</dt>
         <dd>
           <p>Detects whether web workers can use <code>transferables</code> objects.</p>
         </dd>
       </dl>
-      <dl class="has"><dt><span onclick="showdesc(this)" onmouseover="showdesc(this)">[webworkers]</span> Web Workers</dt>
+      <dl class="has"><dt><span class=item>[webworkers]</span> Web Workers</dt>
         <dd>
           <p>Detects support for the basic <code>Worker</code> API from the Web Workers spec. Web Workers provide a simple means for web content to run scripts in background threads.</p>
         </dd>

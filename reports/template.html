@@ -33,13 +33,21 @@
     </style>
 
     <script type="text/javascript">
-      function showdesc(el) {
-      el = el.parentNode
-      document.querySelectorAll('dd').forEach(function(v) {
-      v.className = ''
-      })
-      el.nextElementSibling.className = 'show'
-      }
+function bindEvents() {
+  document.querySelectorAll('dt>span.item').forEach(function(v) {
+    v.onclick = v.onmouseover = showdesc
+  })
+}
+
+function showdesc(e) {
+  var el = e.target
+  el = el.parentNode
+  document.querySelectorAll('dd').forEach(function(el) {
+    el.className=''
+  })
+  el.nextElementSibling.className = 'show'
+}
+window.onload = bindEvents
     </script>
 
   </head>

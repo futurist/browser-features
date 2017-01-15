@@ -881,16 +881,27 @@ function showList () {
     val = features[i]
     item = config[val]
     cls = item.result ? 'has' : 'no-has'
-    list.push('<dl class=' + cls + '><dt><span onclick=showdesc(this) onmouseover=showdesc(this)>[' + val + ']</span> '+ item.name +'</dt><dd>'+ item.desc +'</dd></dl>')
+    list.push('<dl class=' + cls + '><dt><span class=item>[' + val + ']</span> '+ item.name +'</dt><dd>'+ item.desc +'</dd></dl>')
   }
   document.getElementById('features').innerHTML = list.join('')
+
+  // bind events
+  bindEvents()
+
   // if it's phantom, callBack
   if (typeof window.callPhantom === 'function') {
     callPhantom('feature-complete')
   }
 }
 
-function showdesc(el) {
+function bindEvents(arg) {
+  document.querySelectorAll('dt>span.item').forEach(function(v) {
+    v.onclick = v.onmouseover = showdesc
+  })
+}
+
+function showdesc(e) {
+  var el = e.target
   el = el.parentNode
   document.querySelectorAll('dd').forEach(function(el) {
     el.className=''
