@@ -860,11 +860,12 @@ var config = {
 var features = Object.keys(config)
 var detected = []
 var count = 0
-features.forEach(item => {
+features.forEach(function(item) {
   Modernizr.on(item, function (result) {
     config[item].result = result
     detected.push(item)
-    if (++count == features.length || detected.length==208) {
+    if(result) console.log(item, count)
+    if (++count == features.length || detected.length>=208) {
       showList()
     }
   })
@@ -883,6 +884,10 @@ function showList () {
     list.push('<dl class=' + cls + '><dt><span onclick=showdesc(this) onmouseover=showdesc(this)>[' + val + ']</span> '+ item.name +'</dt><dd>'+ item.desc +'</dd></dl>')
   }
   document.getElementById('features').innerHTML = list.join('')
+  // if it's phantom, callBack
+  if (typeof window.callPhantom === 'function') {
+    callPhantom('feature-complete')
+  }
 }
 
 function showdesc(el) {
@@ -890,9 +895,5 @@ function showdesc(el) {
   document.querySelectorAll('dd').forEach(function(el) {
     el.className=''
   })
-  el.nextSibling.className = 'show'
-  // if it's phantom, callBack
-  if (typeof window.callPhantom === 'function') {
-    callPhantom('feature-complete')
-  }
+  el.nextElementSibling.className = 'show'
 }

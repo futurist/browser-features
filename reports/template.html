@@ -1,0 +1,54 @@
+<html style="">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Browser Features Detect ${BROWSER_NAME}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <style type="text/css">
+      dl {
+      position: relative;
+      z-index: 10;
+      }
+
+      dd {
+      display: none;
+      background: white;
+      }
+
+      dd.show {
+      display: block;
+      }
+
+      .has {
+      color: blue;
+      font-weight: bold;
+      }
+
+      .no-has {
+      color: grey;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function showdesc(el) {
+      el = el.parentNode
+      document.querySelectorAll('dd').forEach(function(v) {
+      v.className = ''
+      })
+      el.nextElementSibling.className = 'show'
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <h2>${BROWSER_NAME}</h2>
+    <ul id="features">
+      ${FEATURE_LIST}
+    </ul>
+  </body>
+
+</html>

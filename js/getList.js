@@ -6,8 +6,8 @@ for(var i = 0; i < a.length; i++) {
   el = a[i].firstChild
   tag = el.tagName
   if (tag=='TD' && el.colSpan<2) {
-    api = el.nextSibling.innerText.split(',')
-    next = a[i].nextSibling.firstChild
+    api = el.nextElementSibling.innerText.split(',')
+    next = a[i].nextElementSibling.firstChild
     if (next.colSpan>1) {
       desc = next.innerHTML
       i++

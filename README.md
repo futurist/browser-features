@@ -3,5 +3,13 @@ Detect browser features and report the result, using Modernizr
 
 Access from url:
 
-https://futurist.github.io/browser-features/
+- For your current browser:
+
+  https://futurist.github.io/browser-features/
+
+- For exists browser:
+
+  https://futurist.github.io/browser-features/reports
+
+
 
